@@ -1,0 +1,145 @@
+{
+  "name": "railway reservation bot",
+  "intents": [
+    {
+      "intent": "reservation",
+      "examples": [
+        {
+          "text": "i need to book the train tickets"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "general_greetings",
+      "examples": [
+        {
+          "text": "hi"
+        },
+        {
+          "text": "hello"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "general_thanking",
+      "examples": [
+        {
+          "text": "thank you"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "cf09c2c3-fb69-4b14-ad08-10a3d38b9729",
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome",
+      "previous_sibling": "node_4_1566556466410"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "General thanking",
+      "output": {
+        "text": {
+          "values": [
+            "You are welcome!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#general_thanking",
+      "dialog_node": "node_6_1566557331662",
+      "previous_sibling": "node_3_1566556465993"
+    },
+    {
+      "type": "standard",
+      "title": "general greetings",
+      "output": {
+        "text": {
+          "values": [
+            "how may it help you?",
+            "how can i help you"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#general_greetings",
+      "dialog_node": "node_4_1566556466410",
+      "previous_sibling": "node_6_1566557331662"
+    },
+    {
+      "type": "standard",
+      "title": "reservation",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "https://www.irctc.co.in/nget/train-search"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "you can visit this link and book your tickets and verify all your train details"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#reservation",
+      "dialog_node": "node_3_1566556465993"
+    }
+  ],
+  "workspace_id": "cf09c2c3-fb69-4b14-ad08-10a3d38b9729",
+  "counterexamples": [],
+  "system_settings": {
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
